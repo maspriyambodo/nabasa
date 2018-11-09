@@ -197,15 +197,19 @@
                             </td>
                             <td class="text-center">
                                 <?php
-                                if (date("l") == "SUNDAY") {
-                                    $ri = date("d") * 15 - 10;
-                                } else {
-                                    $ri = date("d") * 15;
-                                }
-                                if ($ReportMonthly->HI / $ri * 100 > 100) {
+//                                if (date("l") == "SUNDAY") {
+//                                    $ri = date("d") * 15 - 10;
+//                                } else {
+//                                    $ri = date("d") * 15;
+//                                }
+                                if ($ReportMonthly->HI == 0) {
+                                    echo '0 %';
+                                } elseif ($ReportMonthly->RI == 0) {
+                                    echo '0 %';
+                                } elseif ($ReportMonthly->HI / $ReportMonthly->RI > 100) {
                                     echo '100 %';
                                 } else {
-                                    echo round($ReportMonthly->HI / $ri * 100, 2) . " %";
+                                    echo round($ReportMonthly->HI / $ReportMonthly->RI, 2) . " %";
                                 }
                                 ?>
                             </td>
@@ -406,7 +410,7 @@
 </div>-->
 <script>
     function caribtn() {
-        
+
     }
     window.onload = function () {
         $('.table').DataTable({

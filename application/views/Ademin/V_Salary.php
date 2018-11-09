@@ -80,9 +80,11 @@
 
     }
     window.onload = function () {
+        alert('haha');
+        document.getElementById('thp').innerHTML === 'kampret';
         $(".gp").number(true, 0);
         $(".ins").number(true, 0);
-        $(".thp").number(true, 0);
+//        $(".thp").number(true, 0);
         $('.table').DataTable({
             "lengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]],
             "scrollY": "300px",
