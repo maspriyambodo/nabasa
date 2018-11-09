@@ -1,0 +1,27 @@
+{
+    "description": "Website Marketing and Admin System of PT MARSIT BANGUN SEJAHTERA",
+    "name": "PRIYAMBODO, S.KOM",
+    "phone": "+62-896-2013-2007",
+    "mail": "maspriyambodo@gmail.com",
+    "mail2": "info@maspriyambodo",
+    "facebook": "https://www.facebook.com/no.hacker.on",
+    "instagram": "https://www.instagram.com/priyambodoss/",
+    "blogspot": "https://massprii.blogspot.com/",
+    "website": "https://wwww.maspriyambodo.com",
+    "type": "project",
+    "homepage": "https://www.marsitbangunsejahtera.com",
+    "support": {
+        "source": "https://github.com/maspriyambodo"
+    },
+    "require": {
+        "php": ">=5.3.7",
+        "mpdf/mpdf": "^7.1"
+    },
+    "suggest": {
+        "paragonie/random_compat": "Provides better randomness in PHP 5.x"
+    },
+    "require-dev": {
+        "mikey179/vfsStream": "1.1.*",
+        "phpunit/phpunit": "4.* || 5.*"
+    }
+}
