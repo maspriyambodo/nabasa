@@ -377,7 +377,7 @@ $config['encryption_key'] = '';
 |
 */
 $config['sess_driver'] = 'files';
-$config['sess_cookie_name'] = 'marsit';
+$config['sess_cookie_name'] = 'kspnabasa';
 $config['sess_expiration'] = 7200;
 $config['sess_save_path'] = APPPATH.'/sessions';
 $config['sess_match_ip'] = FALSE;
