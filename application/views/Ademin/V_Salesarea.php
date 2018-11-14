@@ -38,29 +38,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>
-                            <input type="text" class="form-control" name="txtnama">
-                        </td>
-                        <td>
-                            <input type="text" class="form-control" name="txtnik">
-                        </td>
-                        <td>
-                            <input type="text" class="form-control" name="provinsi">
-                        </td>
-                        <td>
-                            <input type="text" class="form-control" name="txtkab">
-                        </td>
-                        <td>
-                            <input type="text" class="form-control" name="txtcamat">
-                        </td>
-                        <td>
-                            <input type="text" class="form-control" name="txtlurah">
-                        </td>
-                        <td>
-                            <button class="btn btn-xs btn-success" onclick="tambah()"><i class="glyphicon glyphicon-floppy-disk"></i> simpan</button>
-                        </td>
-                    </tr>
                     <?php foreach ($salesarea as $salesarea) { ?>
                         <tr>
                             <td><?= $salesarea->NAMA_KARYAWAN ?></td>

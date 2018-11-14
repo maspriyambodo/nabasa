@@ -1,5 +1,7 @@
 <?php
+
 defined('BASEPATH') OR exit('No direct script access allowed');
+
 class Salary extends CI_Controller {
 
     public function __construct() {
@@ -9,16 +11,29 @@ class Salary extends CI_Controller {
 
     function index() {
         $result = $this->M_User->SelectUser();
-        $data = array(
-            'title' => 'Dashboard | PT MARSIT BANGUN SEJAHTERA',
-            'Content' => 'Admin',
-            'id' => $result[0]->id,
-            'uname' => $result[0]->uname,
-            'usr_mail' => $result[0]->usr_mail,
-            'hak_akses' => $result[0]->hak_akses,
-            'pict' => $result[0]->pict,
-            'ReportMonthly' => $this->M_Salary->ReportMonthly()
-        );
+        if ($result[0]->hak_akses == 1) {
+            $data = array(
+                'title' => 'Dashboard | PT MARSIT BANGUN SEJAHTERA',
+                'Content' => 'Admin',
+                'id' => $result[0]->id,
+                'uname' => $result[0]->uname,
+                'usr_mail' => $result[0]->usr_mail,
+                'hak_akses' => $result[0]->hak_akses,
+                'pict' => $result[0]->pict,
+                'ReportMonthly' => $this->M_Salary->MReportMonthly()
+            );
+        } else {
+            $data = array(
+                'title' => 'Dashboard | PT MARSIT BANGUN SEJAHTERA',
+                'Content' => 'Admin',
+                'id' => $result[0]->id,
+                'uname' => $result[0]->uname,
+                'usr_mail' => $result[0]->usr_mail,
+                'hak_akses' => $result[0]->hak_akses,
+                'pict' => $result[0]->pict,
+                'ReportMonthly' => $this->M_Salary->ReportMonthly($result[0]->nik)
+            );
+        }
         $this->load->view('Ademin/Header', $data);
         $this->load->view('Ademin/V_Salary', $data);
         $this->load->view('Ademin/Footer', $data);

@@ -53,6 +53,15 @@
                                     <li><a href=<?= base_url('Admin/Rencanatelemarketing'); ?>>Telemarketing</a></li>
                                 </ul>
                             </li>-->
+                                    <li <?php
+                                    if ($this->session->userdata('hakakses') != 3) {
+                                        echo 'class="hide"';
+                                    }
+                                    ?>><a><i class="glyphicon glyphicon-star-empty"></i> Marketing <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu">
+                                            <li><a href="<?= base_url('Marketing/Marketing/index'); ?>" class="text-uppercase">Kunjungan</a></li>
+                                        </ul>
+                                    </li>
                                     <li><a><i class="fa fa-bar-chart-o"></i> Report <span class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu">
 <!--                                            <li><a href="<?= base_url('Admin/ReportDaily'); ?>" class="text-uppercase">Laporan Harian Marketing</a></li>

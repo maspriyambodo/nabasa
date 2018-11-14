@@ -33,12 +33,7 @@
                 </thead>
                 <tbody>
                     <?php foreach ($ReportMonthly->result() as $ReportMonthly) { ?>
-                        <tr
-                        <?php
-                        if ($ReportMonthly->norut == FALSE) {
-                            echo 'class="hide"';
-                        }
-                        ?>>
+                        <tr>
                             <td>
                                 <?= $ReportMonthly->norut ?>
                             </td>
@@ -80,8 +75,6 @@
 
     }
     window.onload = function () {
-        alert('haha');
-        document.getElementById('thp').innerHTML === 'kampret';
         $(".gp").number(true, 0);
         $(".ins").number(true, 0);
 //        $(".thp").number(true, 0);

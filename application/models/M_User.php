@@ -4,11 +4,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_User extends CI_Model {
 
+    function CheckUser($data) {
+        $this->db->select('*')->from('usr_adm')->where('uname', $data['uname'])->where('nik', $data['pwd'])->limit(1);
+        $exec = $this->db->get();
+        if ($exec->num_rows() == 1) {
+            return $exec->result();
+        } else {
+            
+        }
+    }
+
     function SelectUser() {
         $exec = $this->db->select('*')
                 ->from('usr_adm')
                 ->where('usr_adm.id', $this->session->userdata('id'))
                 ->where('hak_akses', 1)
+                ->or_where('hak_akses', 3)
+                ->where('usr_adm.id', $this->session->userdata('id'))
                 ->get()
                 ->result();
         if ($exec == FALSE) {
@@ -44,6 +56,8 @@ class M_User extends CI_Model {
                 ->join('m_salesarea', 'usr_adm.nik = m_salesarea.nik')
                 ->where('usr_adm.id', $this->session->userdata('id'))
                 ->where('hak_akses', 10)
+                ->or_where('usr_adm.id', $this->session->userdata('id'))
+                ->where('hak_akses', 3)
                 ->get()
                 ->result();
         if ($exec == FALSE) {

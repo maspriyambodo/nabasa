@@ -146,11 +146,11 @@
                             <td>
                                 <?= $ReportMonthly->norut ?>
                             </td>
-                            <td class="text-uppercase">
+                            <td class="text-uppercase" id="uname">
                                 <?= $ReportMonthly->uname ?>
                             </td>
                             <td>
-                                <?= $ReportMonthly->LOKASI_KERJA ?>
+                                <?= $ReportMonthly->LOKASI_KERJA?>
                             </td>
                             <td>
                                 <?php
@@ -160,15 +160,16 @@
                                     $dStart = new DateTime($ReportMonthly->TANGGAL_MASUK);
                                     $dEnd = new DateTime(date("Y-m-d"));
                                     $dDiff = $dStart->diff($dEnd);
-                                    echo $ReportMonthly->TANGGAL_MASUK . "<br>";
+                                    echo $ReportMonthly->TANGGAL_MASUK;
+                                    echo '<br>';
                                     $year = floor($dDiff->days / 365);
                                     $months = floor($dDiff->days / 30);
                                     $days = $dDiff->days - ($months * 30);
                                     $dif = $months - ($year * 12);
                                     if ($year > 0) {
-                                        echo " ( " . $year . " th " . $dif . "bln " . " )";
+                                        echo " ( " . $year . " th " . $dif . "bl " . " )";
                                     } else {
-                                        echo " ( " . $months . "bln " . " )";
+                                        echo " ( " . $months . "bl " . " )";
                                     }
                                 }
                                 ?>

@@ -11,16 +11,28 @@ class Sales extends CI_Controller {
 
     function index() {
         $result = $this->M_User->SelectUser();
-        $data = array(
-            'title' => 'Master Data Sales',
-            'Content' => 'Admin',
-            'id' => $result[0]->id,
-            'uname' => $result[0]->uname,
-            'usr_mail' => $result[0]->usr_mail,
-            'hak_akses' => $result[0]->hak_akses,
-            'pict' => $result[0]->pict,
-            'sales' => $this->M_Sales->Datasales()
-        );
+        if ($result[0]->hak_akses == 1) {
+            $data = array(
+                'title' => 'Master Data Sales',
+                'id' => $result[0]->id,
+                'uname' => $result[0]->uname,
+                'usr_mail' => $result[0]->usr_mail,
+                'hak_akses' => $result[0]->hak_akses,
+                'pict' => $result[0]->pict,
+                'sales' => $this->M_Sales->MDatasales($result[0]->nik)
+            );
+        } else {
+            $data = array(
+                'title' => 'Master Data Sales',
+                'Content' => 'Admin',
+                'id' => $result[0]->id,
+                'uname' => $result[0]->uname,
+                'usr_mail' => $result[0]->usr_mail,
+                'hak_akses' => $result[0]->hak_akses,
+                'pict' => $result[0]->pict,
+                'sales' => $this->M_Sales->Datasales($result[0]->nik)
+            );
+        }
         $this->load->view('Ademin/Header', $data);
         $this->load->view('Ademin/V_Sales', $data);
         $this->load->view('Ademin/Footer', $data);

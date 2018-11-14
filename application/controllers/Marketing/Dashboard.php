@@ -321,8 +321,8 @@ class Dashboard extends CI_Controller {
             $this->load->view('Marketing/V_Daftarkunjungan', $data);
             $this->load->view('Marketing/FooterScripts', $data);
         } else {
-            echo '<script>alert("Anda belum membuat daftar kunjungan hari ini");window.location.href="'. base_url('Marketing/Marketing/index').'";</script>';
-            
+            echo '<script>alert("Anda belum membuat daftar kunjungan hari ini");window.location.href="' . base_url('Marketing/Marketing/index') . '";</script>';
+
 //            echo '<a href="' . base_url('Marketing/Marketing/index') . '">Buat Daftar Rencana Kunjungan</a>';
         }
     }
@@ -359,7 +359,7 @@ class Dashboard extends CI_Controller {
 
     function Logout() {
         $this->session->sess_destroy();
-        redirect('Login', 'refresh');
+        redirect('https://www.nabasa.co.id/login', 'refresh');
     }
 
 }

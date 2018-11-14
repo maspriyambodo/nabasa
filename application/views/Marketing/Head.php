@@ -61,6 +61,16 @@
 <!--                                            <li><a href="<?= base_url('Marketing/Dashboard/DataSearch'); ?>">Cari data pensiunan</a></li>-->
                                         </ul>
                                     </li>
+                                    <li <?php
+                                    if ($this->session->userdata('hakakses') != 3) {
+                                        echo 'class="hide"';
+                                    }
+                                    ?>>
+                                        <a class="text-uppercase"><i class="glyphicon glyphicon-star"></i> Supervisor <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu">
+                                            <li><a href="<?= base_url('Admin/Dashboard/index'); ?>" class="text-uppercase">Dashboard</a></li>
+                                        </ul>
+                                    </li>
                                     <li>
                                         <a class="text-uppercase"><i class="fa fa-shopping-cart"></i> Penjualan <span class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu">

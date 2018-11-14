@@ -17,11 +17,24 @@ class M_Sales extends CI_Model {
         }
     }
 
-    function Datasales() {
+    function MDatasales() {
         $exec = $this->db->DISTINCT('*')
                 ->FROM('usr_adm')
                 ->JOIN('mst_karyawan', 'usr_adm.nik = mst_karyawan.NIK')
+                ->join('norut', 'mst_karyawan.NIK = norut.nik')
                 ->WHERE('hak_akses', 10)
+                ->get()
+                ->result();
+        return $exec;
+    }
+
+    function Datasales($data) {
+        $exec = $this->db->DISTINCT('*')
+                ->FROM('usr_adm')
+                ->JOIN('mst_karyawan', 'usr_adm.nik = mst_karyawan.NIK')
+                ->join('norut', 'mst_karyawan.NIK = norut.nik')
+                ->WHERE('hak_akses', 10)
+                ->where('norut.spv', $data)
                 ->get()
                 ->result();
         return $exec;

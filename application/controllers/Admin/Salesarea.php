@@ -11,16 +11,28 @@ class Salesarea extends CI_Controller {
 
     function index() {
         $result = $this->M_User->SelectUser();
-        $data = array(
-            'title' => 'Administrator | ' . $result[0]->uname,
-            'Content' => 'Admin',
-            'id' => $result[0]->id,
-            'uname' => $result[0]->uname,
-            'usr_mail' => $result[0]->usr_mail,
-            'hak_akses' => $result[0]->hak_akses,
-            'pict' => $result[0]->pict,
-            'salesarea' => $this->M_Salesarea->Salesarea()
-        );
+        if ($result[0]->hak_akses == 1) {
+            $data = array(
+                'title' => 'SUPER Administrator | ' . $result[0]->uname,
+                'id' => $result[0]->id,
+                'uname' => $result[0]->uname,
+                'usr_mail' => $result[0]->usr_mail,
+                'hak_akses' => $result[0]->hak_akses,
+                'pict' => $result[0]->pict,
+                'salesarea' => $this->M_Salesarea->MSalesarea($result[0]->nik)
+            );
+        } else {
+            $data = array(
+                'title' => 'Administrator | ' . $result[0]->uname,
+                'Content' => 'Admin',
+                'id' => $result[0]->id,
+                'uname' => $result[0]->uname,
+                'usr_mail' => $result[0]->usr_mail,
+                'hak_akses' => $result[0]->hak_akses,
+                'pict' => $result[0]->pict,
+                'salesarea' => $this->M_Salesarea->Salesarea($result[0]->nik)
+            );
+        }
         $this->load->view('Ademin/Header', $data);
         $this->load->view('Ademin/V_Salesarea', $data);
         $this->load->view('Ademin/Footer', $data);

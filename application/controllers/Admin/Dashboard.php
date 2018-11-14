@@ -72,7 +72,7 @@ class Dashboard extends CI_Controller {
 
     function Logout() {
         $this->session->sess_destroy();
-        redirect('Login', 'refresh');
+        redirect('https://www.nabasa.co.id/login', 'refresh');
     }
 
 }

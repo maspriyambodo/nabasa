@@ -151,21 +151,4 @@ class M_Ademin extends CI_Model {
         return $exec;
     }
 
-    function Lapmar() {
-        $exec = $this->db->select('*')
-                ->from('interaksi_marketing')
-                ->join('lap_pict', 'interaksi_marketing.NOTAS = lap_pict.nopen')
-                ->get()
-                ->result();
-        return $exec;
-    }
-
-    function Laptele() {
-        $exec = $this->db->select('*')
-                ->from('interaksi_telemarketing')
-                ->get()
-                ->result();
-        return $exec;
-    }
-
 }

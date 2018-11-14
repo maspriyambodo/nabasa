@@ -5,11 +5,24 @@ date_default_timezone_set("Asia/Jakarta");
 
 class M_Salesarea extends CI_Model {
 
-    function Salesarea() {
+    function MSalesarea() {
         $exec = $this->db->select('*')
                 ->from('m_salesarea')
                 ->join('mst_karyawan', 'm_salesarea.NIK = mst_karyawan.NIK')
+                ->join('norut', 'mst_karyawan.NIK = norut.nik')
                 ->where('mst_karyawan.`status`', 1)
+                ->get()
+                ->result();
+        return $exec;
+    }
+
+    function Salesarea($nik) {
+        $exec = $this->db->select('*')
+                ->from('m_salesarea')
+                ->join('mst_karyawan', 'm_salesarea.NIK = mst_karyawan.NIK')
+                ->join('norut', 'mst_karyawan.NIK = norut.nik')
+                ->where('mst_karyawan.`status`', 1)
+                ->where('norut.spv', $nik)
                 ->get()
                 ->result();
         return $exec;

@@ -7,7 +7,7 @@ class Login extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->Model('M_Home');
+        $this->load->Model('M_User');
     }
 
     function index() {
@@ -62,12 +62,14 @@ class Login extends CI_Controller {
 
     function Masuk() {
         $data = array('uname' => $this->input->post('unametxt'), 'pwd' => $this->input->post('pwdtxt'));
-        $result = $this->M_Home->CheckUser($data);
+        $result = $this->M_User->CheckUser($data);
         if ($result == TRUE) {
             $session = array('title' => 'Dashboard', 'id' => $result[0]->id, 'nama' => $result[0]->uname, 'mail' => $result[0]->usr_mail, 'hakakses' => $result[0]->hak_akses, 'gambar' => $result[0]->pict);
             $this->session->set_userdata($session);
-            if ($result[0]->hak_akses == 1) {
+            if ($result[0]->hak_akses == 1) {//super_ademin
                 redirect('Admin/Dashboard/index', 'refresh');
+            } elseif ($result[0]->hak_akses == 3) {//spv sekaligus marketing
+                redirect('Marketing/Marketing/index', 'refresh');
             } elseif ($result[0]->hak_akses == 10/* marketing */) {
                 redirect('Marketing/Marketing/index', 'refresh');
             } elseif ($result[0]->hak_akses == 11/* telemarketing */) {

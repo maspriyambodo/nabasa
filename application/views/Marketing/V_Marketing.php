@@ -99,7 +99,7 @@
             responsive: true,
             fixedHeader: true,
             "lengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]],
-            dom: 'lfrtip'
+            dom: 'Blfrtip'
         });
     };
     function klikkabupaten() {
