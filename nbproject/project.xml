@@ -6,13 +6,29 @@
             <name>nabasa</name>
         </data>
         <spellchecker-wordlist xmlns="http://www.netbeans.org/ns/spellchecker-wordlist/1">
+            <word>duda</word>
+            <word>janda</word>
+            <word>jenis</word>
             <word>jumlah</word>
+            <word>kawin</word>
             <word>keca</word>
             <word>kecamatan</word>
+            <word>kelamin</word>
+            <word>kembali</word>
+            <word>kerja</word>
+            <word>kontrak</word>
             <word>Kunjungan</word>
+            <word>lajang</word>
+            <word>lokasi</word>
+            <word>masuk</word>
+            <word>menikah</word>
+            <word>perempuan</word>
+            <word>pilih</word>
             <word>potensi</word>
             <word>provinsi</word>
+            <word>tambah</word>
             <word>tersedia</word>
+            <word>tetap</word>
         </spellchecker-wordlist>
     </configuration>
 </project>

@@ -28,6 +28,7 @@
         <link href="<?= base_url('assets/css/basic.css'); ?>" rel=stylesheet type="text/css" />
         <link href="https://cdn.datatables.net/fixedheader/3.1.5/css/fixedHeader.dataTables.min.css" rel=stylesheet type="text/css" />
         <link href=https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.min.css rel=stylesheet type="text/css" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.css" rel=stylesheet type="text/css" />
         <style type=text/css>
             .dataTables_filter {
                 width: auto

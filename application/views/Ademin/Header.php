@@ -17,6 +17,7 @@
         <link href="<?= base_url('assets/css/bootstrap-progressbar-3.3.4.min.css'); ?>" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/jqvmap/1.5.1/jqvmap.min.css" rel="stylesheet" />
         <link href="<?= base_url('assets/css/daterangepicker.css'); ?>" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.css" rel=stylesheet type="text/css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" type="text/css" />
         <link href="<?= base_url('assets/css/custom.min.css'); ?>" rel="stylesheet">
         <style type=text/css>

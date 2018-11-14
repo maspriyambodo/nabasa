@@ -4,6 +4,9 @@
             <div class="col-md-6">
                 <h2 class="text-uppercase">Master data sales</h2>
             </div>
+            <div class="col-md-6 text-right">
+                <a href="<?= base_url('Admin/Sales/Tambah'); ?>" class="btn btn-success text-uppercase">tambah</a>
+            </div>
         </div>
         <div class="clearfix"></div>
     </div>
