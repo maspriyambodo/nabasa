@@ -40,11 +40,29 @@ class M_Sales extends CI_Model {
         return $exec;
     }
 
-    function Nonaktifsales() {
-        $this->db->trans_start();
-        $this->db->query('UPDATE usr_adm SET hak_akses = 0 WHERE hak_akses = 10');
-        $this->db->trans_complete();
+    function SimpanSales($data) {
+        $this->db->set('provinsi');$this->db->set('kabupaten');$this->db->set('kecamatan');$this->db->set('kelurahan');$this->db->insert('m_salesarea');$this->db->trans_start();$this->db->query('INSERT INTO mst_karyawan (NAMA_KARYAWAN,NIK,JENIS_KELAMIN,TGL_LAHIR,ALAMAT,TELEPON1,EMAIL,STATUS_PERKAWINAN,STATUS_KARYAWAN,TANGGAL_MASUK,LOKASI_KERJA,penpok,status,syscreateuser,syscreatedate) VALUES("'.$data['NAMA_KARYAWAN'].'",'.$data['NIK'].','.$data['JENIS_KELAMIN'].',"'.$data['TGL_LAHIR'].'","'.$data['ALAMAT'].'","'.$data['TELEPON1'].'","'.$data['EMAIL'].'","'.$data['STATUS_PERKAWINAN'].'","'.$data['STATUS_KARYAWAN'].'","'.$data['TANGGAL_MASUK'].'","'.$data['LOKASI_KERJA'].'",'.$data['penpok'].',4,'.$this->session->userdata('id').',NOW());');$this->db->query('INSERT INTO m_salesarea ( NIK, provinsi, kabupaten, kecamatan, kelurahan, syscreateuser,syscreatedate ) VALUES ('.$data['NIK'].',"'.$data['provinsi'].'","'.$data['kabupaten'].'","'.$data['kecamatan'].'","'.$data['kelurahan'].'", '.$this->session->userdata('id').',NOW())');$this->db->query('INSERT INTO usr_adm ( usr_adm.nik, usr_adm.uname, usr_adm.usr_mail, usr_adm.hak_akses, usr_adm.pict ) VALUES ( '.$data['NIK'].', "'.$data['NAMA_KARYAWAN'].'", "'.$data['EMAIL'].'", 10, "assets\images\user\marketing.png" )');$this->db->trans_complete();
+        if ($this->db->trans_status() === FALSE) {
+            $response = array('status' => 'error', 'msg' => 'data gagal disimpan !');
+            $this->output
+                    ->set_status_header(200)
+                    ->set_content_type('application/json', 'utf-8')
+                    ->set_output(json_encode($response, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES))
+                    ->_display();
+            exit;
+        } else {
+            $response = array('status' => 'success', 'msg' => 'data berhasil disimpan :)');
+            $this->output
+                    ->set_status_header(200)
+                    ->set_content_type('application/json', 'utf-8')
+                    ->set_output(json_encode($response, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES))
+                    ->_display();
+            exit;
+        }
+    }
 
+    function Nonaktifsales() {
+        $this->db->trans_start();$this->db->query('UPDATE usr_adm SET hak_akses = 0 WHERE hak_akses = 10');$this->db->trans_complete();
         if ($this->db->trans_status() === FALSE) {
             $response = array('status' => 'ERROR', 'msg' => 'error, silahkan coba lagi !');
             $this->output

@@ -61,7 +61,18 @@
                                 ?>
                             </td>
                             <td id="thp" class="thp text-center">
-
+                                <?php
+                                $gp = $ReportMonthly->HI / 100;
+                                $penpok = $ReportMonthly->penpok * round($gp, 2);
+                                if ($ReportMonthly->PLAF <= $ReportMonthly->limit1) {
+                                    $insentif = $ReportMonthly->PLAF * $ReportMonthly->persen1;
+                                } elseif ($ReportMonthly->PLAF <= $ReportMonthly->limit2) {
+                                    $insentif = $ReportMonthly->PLAF * $ReportMonthly->persen2;
+                                } elseif ($ReportMonthly->PLAF >= $ReportMonthly->limit3) {
+                                    $insentif = $ReportMonthly->PLAF * $ReportMonthly->persen3;
+                                }
+                                echo $penpok + $insentif;
+                                ?>
                             </td>
                         </tr>
                     <?php } ?>
@@ -71,13 +82,10 @@
     </div>
 </div>
 <script>
-    function caribtn() {
-
-    }
     window.onload = function () {
         $(".gp").number(true, 0);
         $(".ins").number(true, 0);
-//        $(".thp").number(true, 0);
+        $(".thp").number(true, 0);
         $('.table').DataTable({
             "lengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]],
             "scrollY": "300px",

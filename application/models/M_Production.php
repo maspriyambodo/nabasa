@@ -198,17 +198,7 @@ class M_Production extends CI_Model {
     }
 
     function Insertinteraksi($data) {
-        $this->db->trans_begin();
-        $this->db->set('visit_status', 2);
-        $this->db->set('sysupdatedate', date("Y-m-d"));
-        $this->db->set('sysupdateuser', $this->session->userdata('id'));
-        $this->db->where('nopen', $data['NOTAS']);
-        $this->db->update('rencana_marketing');
-        
-        $this->db->set('status', 2, FALSE);
-        $this->db->where('NOTAS', $data['NOTAS']);
-        $this->db->update('mst_datapens');
-        $this->db->insert('interaksi_marketing', $data);
+        $this->db->trans_begin();$this->db->set('visit_status',2);$this->db->set('sysupdatedate',date("Y-m-d"));$this->db->set('sysupdateuser',$this->session->userdata('id'));$this->db->where('nopen',$data['NOTAS']);$this->db->update('rencana_marketing');$this->db->set('status',2,FALSE);$this->db->where('NOTAS',$data['NOTAS']);$this->db->update('mst_datapens');$this->db->insert('interaksi_marketing',$data);
         if ($this->db->trans_status() === FALSE) {
             $this->db->trans_rollback();
             $response = array('status' => 'ERROR', 'msg' => 'silahkan upload foto selfie');
@@ -363,7 +353,7 @@ class M_Production extends CI_Model {
     }
 
     function Pencairan($result) {
-        $exec = $this->db->distinct('*')
+        $exec = $this->db->select('*')
                 ->from('interaksi_marketing')
                 ->where('NIKSALES', $result[0]->NIK)
                 ->get()
@@ -377,11 +367,7 @@ class M_Production extends CI_Model {
     }
 
     function SimpanPencairan($response) {
-        $this->db->trans_start();
-        $this->db->set($response);
-        $this->db->where('NOTAS', $response['NOTAS']);
-        $this->db->update('interaksi_marketing');
-        $this->db->trans_complete();
+        $this->db->trans_start();$this->db->set($response);$this->db->where('NOTAS',$response['NOTAS']);$this->db->update('interaksi_marketing');$this->db->trans_complete();
         if ($this->db->trans_status() === FALSE) {
             $this->db->trans_rollback();
             $response = array('status' => 'ERROR');
