@@ -35,6 +35,8 @@ class M_Sales extends CI_Model {
                 ->join('norut', 'mst_karyawan.NIK = norut.nik')
                 ->WHERE('hak_akses', 10)
                 ->where('norut.spv', $data)
+                ->or_where('hak_akses', 3)
+                ->where('norut.spv', $data)
                 ->get()
                 ->result();
         return $exec;

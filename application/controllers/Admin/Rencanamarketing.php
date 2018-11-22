@@ -19,7 +19,7 @@ class Rencanamarketing extends CI_Controller {
             'usr_mail' => $result[0]->usr_mail,
             'hak_akses' => $result[0]->hak_akses,
             'pict' => $result[0]->pict,
-            'userid' => $this->M_Ademin->SelectUser(),
+            'userid' => $this->M_User->SelectUser(),
             'hasilinteraksi' => $this->M_Ademin->HasilInteraksi()
         );
         $this->load->view('Ademin/Header', $data);

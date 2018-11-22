@@ -68,6 +68,7 @@
 <!--                                            <li><a href="<?= base_url('Admin/ReportDaily'); ?>" class="text-uppercase">Laporan Harian Marketing</a></li>
                                             <li><a href="<?= base_url('Admin/MonthlyReport'); ?>" class="text-uppercase">Laporan Bulanan Marketing</a></li>-->
                                             <li><a href="<?= base_url('Admin/ReportMonthly'); ?>" class="text-uppercase">Laporan Bulanan</a></li>
+                                            <li><a href="<?= base_url('Admin/Rencanaharian'); ?>" class="text-uppercase">Laporan Rencana Harian</a></li>
                                             <li><a href="<?= base_url('Admin/Lapmarketing'); ?>" class="text-uppercase">Laporan Interaksi Marketing</a></li>
                                             <li><a href="<?= base_url('Admin/Laptele'); ?>" class="text-uppercase">Laporan Interaksi Telemarketing</a></li>
                                             <li><a href="<?= base_url('Admin/Salary/index'); ?>" class="text-uppercase">Salary</a></li>

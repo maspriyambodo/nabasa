@@ -76,7 +76,7 @@ class M_Production extends CI_Model {
             $this->db->set('`status`', 2);
             $this->db->where('NOTAS', '' . $data['nopen'] . '');
             $this->db->update('mst_datapens');
-            redirect(base_url('Marketing/Dashboard/index'), 'refresh');
+            redirect(base_url('Marketing/Marketing/index'), 'refresh');
         }
     }
 

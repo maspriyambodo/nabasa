@@ -188,7 +188,7 @@
         </div>
     </div>
 </div>
-<script type="text/javascript">
+<script>
     function simpan() {
         $('.simpaninteraksi').addClass("hide");
         var a, b, c, e, i, l, d, o, m, p, s, f, u, r, N, v, x, g, T, w, q;
@@ -257,9 +257,9 @@
                     ttd: q
                 },
                 success: function (data) {
-//                alert("data berhasil disimpan !"), $("#myModal").hide("slow"), window.location.href = "<?= base_url('Marketing/Dashboard/index'); ?>";
+//                alert("data berhasil disimpan !"), $("#myModal").hide("slow"), window.location.href = "<?= base_url('Marketing/Marketing/index'); ?>";
                     if (data.status === "TRUE") {
-                        alert("data berhasil disimpan !"), $("#myModal").hide("slow"), window.location.href = "<?= base_url('Marketing/Dashboard/index'); ?>";
+                        alert("data berhasil disimpan !"), $("#myModal").hide("slow"), window.location.href = "<?= base_url('Marketing/Marketing/index'); ?>";
                     } else {
                         alert(data.msg), $("#myModal").hide("slow");
                         $('.simpan').removeClass("hide");
