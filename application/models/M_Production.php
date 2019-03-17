@@ -27,7 +27,7 @@ class M_Production extends CI_Model {
                 ->join('mst_datapens', 'rencana_marketing.nopen = mst_datapens.NOTAS')
                 ->where('nik', $result[0]->nik)
                 ->where('visit_status', 1)
-                ->where('rencana_marketing.syscreatedate', date("Y-m-d"))
+                ->where('DATE(rencana_marketing.syscreatedate)', date("Y-m-d"))
                 ->get()
                 ->result();
         return $exec;
@@ -38,18 +38,8 @@ class M_Production extends CI_Model {
                 ->from('rencana_marketing')
                 ->join('mst_datapens', 'rencana_marketing.nopen = mst_datapens.NOTAS')
                 ->where('nik', $result[0]->nik)
-                ->where('rencana_marketing.syscreatedate', date("Y-m-d"))
+                ->where('DATE(rencana_marketing.syscreatedate)', date("Y-m-d"))
                 ->get();
-//        $data = $exec->result();
-//        if ($data == FALSE) {
-//            $this->db->set('mst_datapens.status', 1)
-//                    ->where('mst_datapens.NOTAS (SELECT nopen FROM rencana_marketing WHERE visit_status = 2 AND nik = "' . $result[0]->nik . '")','',FALSE)
-//                    ->update('`mst_datapens, rencana_marketing`');
-//        } elseif ($data[0]->syscreatedate != date("Y-m-d")) {
-//            $this->db->set('mst_datapens.status', 1)
-//                    ->where('mst_datapens.NOTAS (SELECT nopen FROM rencana_marketing WHERE visit_status = 2 AND nik = "' . $result[0]->nik . '")','',FALSE)
-//                    ->update('`mst_datapens, rencana_marketing`');
-//        }
         return $exec;
     }
 
@@ -58,7 +48,7 @@ class M_Production extends CI_Model {
                 ->from('rencana_marketing')
                 ->join('mst_datapens', 'rencana_marketing.nopen = mst_datapens.NOTAS')
                 ->where('nik', $result[0]->nik)
-                ->where('syscreatedate', date("Y-m-d"))
+                ->where('DATE(syscreatedate)', date("Y-m-d"))
                 ->get();
         return $exec;
     }

@@ -48,6 +48,11 @@
                                     <li><a class="text-uppercase" href=<?= base_url('Admin/Salesarea'); ?>><i class="glyphicon glyphicon-globe"></i> Sales Area</a></li>
                                     <li><a class="text-uppercase" href=<?= base_url('Admin/Nasabah'); ?>><i class="glyphicon glyphicon-list-alt"></i> Nasabah</a></li>
                                     <li><a class="text-uppercase" href=<?= base_url('Admin/KodeInteraksi'); ?>><i class="glyphicon glyphicon-pencil"></i> Kode Interaksi</a></li>
+                                    <?php
+                                    if ($this->session->userdata('hakakses') == 1) {
+                                        echo '<li><a class="text-uppercase" href=' . base_url('HRIS/Karyawan/index') . '><i class="glyphicon glyphicon-pencil"></i> Karyawan</a></li>';
+                                    }
+                                    ?>
 <!--                                    <li><a><i class="fa fa-exchange"></i> Rencana <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li><a href=<?= base_url('Admin/Rencanamarketing'); ?>>Marketing</a></li>

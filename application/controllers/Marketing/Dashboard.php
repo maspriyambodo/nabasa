@@ -301,7 +301,7 @@ class Dashboard extends CI_Controller {
                 'nopen' => $nopen,
                 'nik' => $result[0]->nik,
                 'visit_status' => 1,
-                'syscreatedate' => 'NOW()',
+                'syscreatedate' => date("Y-m-d H:i:s"),
                 'syscreateuser' => $this->session->userdata('id')
             );
             $this->M_Production->Checkrencana($data);
@@ -322,7 +322,6 @@ class Dashboard extends CI_Controller {
             $this->load->view('Marketing/FooterScripts', $data);
         } else {
             echo '<script>alert("Anda belum membuat daftar kunjungan hari ini");window.location.href="' . base_url('Marketing/Marketing/index') . '";</script>';
-
 //            echo '<a href="' . base_url('Marketing/Marketing/index') . '">Buat Daftar Rencana Kunjungan</a>';
         }
     }

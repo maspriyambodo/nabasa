@@ -16,19 +16,19 @@
                 <thead>
                     <tr>
                         <th class="text-uppercase text-center">
-                            nama
+                            NAMA
                         </th>
                         <th class="text-uppercase text-center">
-                            nik
+                            NIK
                         </th>
                         <th class="text-uppercase text-center">
-                            lahir
+                            TLP
                         </th>
                         <th class="text-uppercase text-center">
-                            alamat
+                            LAHIR
                         </th>
                         <th class="text-uppercase text-center">
-                            action's
+                            ALAMAT
                         </th>
                     </tr>
                 </thead>
@@ -36,19 +36,19 @@
                     <?php foreach ($sales as $sales) { ?>
                         <tr>
                             <td>
-                                <?= $sales->NAMA_KARYAWAN ?>
+                                <a href="<?= base_url('Admin/Sales/Details/' . $sales->NIK . ''); ?>"><?= $sales->NAMA_KARYAWAN ?></a>
                             </td>
                             <td>
                                 <?= $sales->NIK ?>
+                            </td>
+                            <td>
+                                <?= $sales->TELEPON1 . " <br> " . $sales->TELEPON2 ?>
                             </td>
                             <td>
                                 <?= $sales->TGL_LAHIR ?>
                             </td>
                             <td>
                                 <?= $sales->ALAMAT . "KEL. " . $sales->KELURAHAN . "KEC. " . $sales->KECAMATAN . "KOTA/KAB " . $sales->KOTA ?>
-                            </td>
-                            <td class="text-center">
-                                <button type="button" class="btn btn-xs btn-default" title="lihat detail" onclick="details()"><i class="glyphicon glyphicon-eye-open"></i></button>
                             </td>
                         </tr>
                     <?php } ?>
@@ -92,9 +92,6 @@
             responsive: true
         });
     };
-    function details() {
-        alert('kampreeeeeeeeeeet');
-    }
     function nonaktif() {
 
     }

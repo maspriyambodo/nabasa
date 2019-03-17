@@ -24,9 +24,23 @@
                             <td>
                                 <?= $Value->NAMAPENSIUNAN; ?>
                             </td>
-                            <td class="text-center"><?= date("Y-m-d") - date($Value->TGL_LAHIR_PENSIUNAN); ?></td>
+                            <td class="text-center">
+                                <?php
+                                $now = new DateTime();
+                                $dob = new DateTime(date($Value->TGL_LAHIR_PENSIUNAN));
+                                $age = $now->diff($dob);
+                                echo $age->y;
+                                ?>
+                            </td>
                             <td><?= $Value->NAMA_PENERIMA; ?></td>
-                            <td class="text-center"><?= date("Y-m-d") - date($Value->TGL_LAHIR_PENERIMA); ?></td>
+                            <td class="text-center">
+                                <?php
+                                $now1 = new DateTime();
+                                $dob1 = new DateTime(date($Value->TGL_LAHIR_PENERIMA));
+                                $age1 = $now1->diff($dob1);
+                                echo $age1->y;
+                                ?>
+                            </td>
                             <td><?= $Value->ALM_PESERTA . ', KEL. ' . $Value->KELURAHAN . ', KEC. ' . $Value->KECAMATAN . ', KAB. ' . $Value->KOTA_KAB . ", PROV. " . $Value->PROVINSI; ?></td>
                             <td class="text-center">
                                 <a href="<?= base_url('Marketing/Dashboard/Interaksi/' . $Value->NOTAS . ''); ?>" class="btn btn-xs"><i class="fa fa-edit"></i> Interaksi </a>

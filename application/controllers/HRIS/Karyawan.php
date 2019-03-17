@@ -11,9 +11,23 @@ class Karyawan extends CI_Controller {
 
     function index() {
         $result = $this->M_User->SelectUser();
-        if ($result[0]->hak_akses != 2) {
+        if ($result[0]->hak_akses == 10 || $result[0]->hak_akses == 3) {
             echo '<script>alert("anda tidak memiliki ijin mengakses halaman ini");</script>';
             redirect('Home/Login', 'refresh');
+        } elseif ($result[0]->hak_akses == 1 || $result[0]->hak_akses == 2) {
+            $data = array(
+                'title' => 'Data Karyawan PT Marsit',
+                'Content' => 'Admin',
+                'id' => $result[0]->id,
+                'uname' => $result[0]->uname,
+                'usr_mail' => $result[0]->usr_mail,
+                'hak_akses' => $result[0]->hak_akses,
+                'pict' => $result[0]->pict,
+                'marketing' => $this->M_HR->M_Karyawan()
+            );
+            $this->load->view('HRIS/Header', $data);
+            $this->load->view('HRIS/V_Karyawan', $data);
+            $this->load->view('HRIS/Footer', $data);
         } else {
             $data = array(
                 'title' => 'Data Karyawan PT Marsit',

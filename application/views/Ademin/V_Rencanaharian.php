@@ -6,8 +6,8 @@
     <div class="text-center">
         <h4 class="text-uppercase"><?= date("25/m/Y", strtotime("-1 month")) . " - " . date("d/m/Y"); ?></h4>
     </div>
-    <table class="table table-bordered table-hover table-striped">
-        <thead>
+    <table class="table table-bordered table-hover table-striped" style="width:100%;">
+        <thead style="background-color:orange;">
             <tr>
                 <th class="text-center text-uppercase">
                     NO
@@ -19,7 +19,7 @@
                     JAM
                 </th>
                 <th class="text-center text-uppercase">
-                    TOTAL
+                    JML RENCANA 
                 </th>
                 <th class="text-center text-uppercase">
                     KETERANGAN
@@ -36,10 +36,10 @@
                         <?= $tot->NAMA_KARYAWAN ?>
                     </td>
                     <td class="text-center text-uppercase">
-
+                        <?= $tot->jam ?>
                     </td>
                     <td class="text-center text-uppercase">
-
+                        <?= $tot->rencana ?>
                     </td>
                     <td class="text-center text-uppercase">
 

@@ -62,7 +62,6 @@ class Marketing extends CI_Controller {
                 'nopen' => $nopen,
                 'nik' => $result[0]->nik,
                 'visit_status' => 1,
-                'syscreatedate' => date("Y-m-d"),
                 'syscreateuser' => $this->session->userdata('id')
             );
             $this->M_Production->Checkrencana($data);

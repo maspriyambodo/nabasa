@@ -74,7 +74,23 @@ class Sales extends CI_Controller {
             'kelurahan' => $this->input->post('keltxt')
         );
         $this->M_Sales->SimpanSales($data);
-        
+    }
+
+    function Details($nik) {
+        $result = $this->M_User->SelectUser();
+        $data = array(
+            'title' => 'Tambah Data Sales',
+            'Content' => 'Admin',
+            'id' => $result[0]->id,
+            'uname' => $result[0]->uname,
+            'usr_mail' => $result[0]->usr_mail,
+            'hak_akses' => $result[0]->hak_akses,
+            'pict' => $result[0]->pict,
+            'Detail' => $this->M_Sales->Details($nik)
+        );
+        $this->load->view('Ademin/Header', $data);
+        $this->load->view('Ademin/V_DetailsSales', $data);
+        $this->load->view('Ademin/Footer', $data);
     }
 
     function Nonaktifsales() {

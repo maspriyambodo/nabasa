@@ -22,6 +22,7 @@
             <word>lokasi</word>
             <word>masuk</word>
             <word>menikah</word>
+            <word>NIK</word>
             <word>perempuan</word>
             <word>pilih</word>
             <word>potensi</word>
@@ -29,6 +30,7 @@
             <word>tambah</word>
             <word>tersedia</word>
             <word>tetap</word>
+            <word>tlp</word>
         </spellchecker-wordlist>
     </configuration>
 </project>
